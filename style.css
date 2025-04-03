@@ -1,0 +1,81 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #ffcccc; /* Light pink background */
+    overflow: hidden;
+}
+
+/* Heart container with more space between hearts */
+.container {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: space-around;
+    width: 600px; /* Increased width to separate hearts */
+}
+
+/* Heart shape */
+.heart {
+    position: relative;
+    width: 250px;
+    height: 230px;
+    background-color: red;
+    transform: rotate(-45deg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.heart::before,
+.heart::after {
+    content: "";
+    position: absolute;
+    width: 250px;
+    height: 230px;
+    background-color: red;
+    border-radius: 50%;
+}
+
+.heart::before {
+    top: -125px;
+    left: 0;
+}
+
+.heart::after {
+    left: 125px;
+    top: 0;
+}
+
+/* Images inside hearts (fully visible) */
+.heart img {
+    position: absolute;
+    width: 180px; /* Adjusted size for full visibility */
+    height: 180px;
+    object-fit: cover;
+    border-radius: 50%;
+    transform: rotate(45deg); /* Rotating back to normal */
+}
+
+/* Falling Hearts Effect */
+.heart-rain {
+    position: absolute;
+    font-size: 28px;
+    color: #ff1493; /* Dark pink */
+    font-weight: bold;
+    animation: fall 5s linear infinite;
+    opacity: 0.9;
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(-10vh);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100vh);
+        opacity: 0;
+    }
+}
