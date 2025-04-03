@@ -1,0 +1,83 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #ffcccc; /* Light pink background */
+    overflow: hidden;
+}
+
+/* Big heart centered */
+.heart-container {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Very big heart */
+.heart {
+    position: relative;
+    width: 400px;
+    height: 360px;
+    background-color: red;
+    transform: rotate(-45deg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Heart shape */
+.heart::before,
+.heart::after {
+    content: "";
+    position: absolute;
+    width: 400px;
+    height: 360px;
+    background-color: red;
+    border-radius: 50%;
+}
+
+.heart::before {
+    top: -200px;
+    left: 0;
+}
+
+.heart::after {
+    left: 200px;
+    top: 0;
+}
+
+/* Two images inside the heart */
+.image-container {
+    position: absolute;
+    display: flex;
+    gap: 10px;
+}
+
+.image-container img {
+    width: 170px; /* Making sure both images fit */
+    height: 170px;
+    object-fit: cover;
+    border-radius: 20px;
+    transform: rotate(45deg); /* Rotate back to normal */
+}
+
+/* Falling Hearts Effect */
+.heart-rain {
+    position: absolute;
+    font-size: 28px;
+    color: #ff1493;
+    font-weight: bold;
+    animation: fall 5s linear infinite;
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(-10vh);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100vh);
+        opacity: 0;
+    }
+}
