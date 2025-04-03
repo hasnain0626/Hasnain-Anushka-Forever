@@ -1,11 +1,12 @@
 function checkPassword() {
     let password = document.getElementById("password").value;
-    let heart = document.getElementById("heart");
-
-    if (password === "anu2606") { // Correct password for Anushka
-        heart.style.display = "block";
+    
+    if (password === "anu2606") {
+        document.getElementById("passwordSection").style.display = "none"; // Hide password input
+        document.getElementById("heartContainer").style.display = "block"; // Show heart
     } else {
-        alert("Wrong password! Try again 💔");
+        alert("Incorrect password! Try again.");
     }
 }
+
 
